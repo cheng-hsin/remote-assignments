@@ -1,8 +1,24 @@
 function max(numbers) {
   // your code here, for-loop method preferred
+  let stoargedNum = 0;
+  let maxNum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    stoargedNum = numbers[i];
+    if (stoargedNum > maxNum) {
+      maxNum = stoargedNum;
+    }
+  }
+  return maxNum;
 }
 function findPosition(numbers, target) {
   // your code here, for-loop method preferred
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === target) {
+      return i;
+    } else if (i == numbers.length - 1) {
+      return -1;
+    }
+  }
 }
 console.log(max([1, 2, 4, 5])); // should print 5
 console.log(max([5, 2, 7, 1, 6])); // should print 7
