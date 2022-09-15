@@ -1,9 +1,8 @@
 function count(input) {
   // your code here
   var storageArr = input;
-
   var letter;
-  var message = '';
+  const output = {};
   while (input.length > 0) {
     var count = 0;
     letter = storageArr[0];
@@ -15,13 +14,9 @@ function count(input) {
       }
     }
     //console.log(storageArr);
-    if (storageArr.length > 0) {
-      message += `${letter}:${count}, `;
-    } else if (storageArr.length == 0) {
-      message += `${letter}:${count}`;
-    }
+    output[letter] = count;
   }
-  return `{${message}}`;
+  return output;
 }
 let input1 = ['a', 'b', 'c', 'a', 'c', 'a', 'x'];
 console.log(count(input1));
@@ -31,8 +26,8 @@ function groupByKey(input) {
   // your code here
   var storageArr = input;
   var letter;
-  var output = [];
-  while (input.length > 0) {
+  var output = {};
+  while (storageArr.length > 0) {
     var count = 0;
     letter = storageArr[0].key;
     for (var i = 0; i < storageArr.length; i++) {
@@ -42,7 +37,7 @@ function groupByKey(input) {
         i--;
       }
     }
-    output.push({ key: letter, value: count });
+    output[letter] = count;
   }
   return output;
 }
