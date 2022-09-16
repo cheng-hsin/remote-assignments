@@ -1,20 +1,14 @@
 function count(input) {
   // your code here
-  var storageArr = input;
-  var letter;
   const output = {};
-  while (input.length > 0) {
-    var count = 0;
-    letter = storageArr[0];
-    for (var i = 0; i < storageArr.length; i++) {
-      if (letter === storageArr[i]) {
-        count++;
-        storageArr.splice(i, 1);
-        i--;
-      }
+  for (let i = 0; i < input.length; i++) {
+    if (Object.keys(output).includes(input[i]) == true) {
+      output[input[i]] += 1;
+      // console.log(`${input[i]} is in output, so add 1 to it -->`, output);
+    } else {
+      output[input[i]] = 1;
+      // console.log(`${input[i]} is not in output, so add it -->`, output);
     }
-    //console.log(storageArr);
-    output[letter] = count;
   }
   return output;
 }
