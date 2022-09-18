@@ -18,23 +18,25 @@ console.log(count(input1));
 
 function groupByKey(input) {
   // your code here
-  var storageArr = input;
-  var letter;
-  var output = {};
-  while (storageArr.length > 0) {
-    var count = 0;
-    letter = storageArr[0].key;
-    for (var i = 0; i < storageArr.length; i++) {
-      if (letter === storageArr[i].key) {
-        count += storageArr[i].value;
-        storageArr.splice(i, 1);
-        i--;
-      }
+  const output = {};
+  for (let i = 0; i < input.length; i++) {
+    if (Object.keys(output).includes(input[i].key) == true) {
+      output[input[i].key] += input[i].value;
+      // console.log(
+      //   `${input[i].key} is in output, so add its value to it -->`,
+      //   output
+      // );
+    } else {
+      output[input[i].key] = input[i].value;
+      // console.log(
+      //   `${input[i].key} is not in output, so add it and its value -->`,
+      //   output
+      // );
     }
-    output[letter] = count;
   }
   return output;
 }
+
 let input2 = [
   { key: 'a', value: 3 },
   { key: 'b', value: 1 },
