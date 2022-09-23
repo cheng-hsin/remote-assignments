@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <label for="number">Enter a number:</label>
+    <input type="text" id="number" /><br /><br />
+    <button type="button">Summit</button>
+    <!-- <script src="../app.js"></script> -->
+    <script>
+      const button = document.querySelector('button');
+      button.addEventListener('click', () => {
+        const number = document.querySelector('#number').value;
+        window.location.href = `http://localhost:3000/data?number=${number}`;
+      });
+    </script>
+  </body>
+</html>
